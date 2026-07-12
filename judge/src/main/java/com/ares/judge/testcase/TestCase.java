@@ -26,7 +26,7 @@ public class TestCase {
     private String input;
 
     @Column(name = "expected_output",nullable = false,columnDefinition = "Text")
-    private String ExpectedOutput;
+    private String expectedOutput;
 
     @Column(nullable = false)
     @Builder.Default
@@ -34,6 +34,6 @@ public class TestCase {
 
     @Column(name = "created_at",nullable = false,updatable = false)
     @Builder.Default
-    private LocalDateTime createdAT = LocalDateTime.now();
+    private LocalDateTime createdAt = LocalDateTime.now();
 }
 
