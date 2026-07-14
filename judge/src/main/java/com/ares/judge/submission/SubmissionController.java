@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/submissions")
 @RequiredArgsConstructor
@@ -19,5 +21,9 @@ public class SubmissionController {
     public ResponseEntity<SubmissionResponse> submit(@Valid @RequestBody SubmissionCreateRequest request) {
         SubmissionResponse response = submissionService.submit(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<SubmissionResponse> getById(@PathVariable UUID id) {
+        return ResponseEntity.ok(submissionService.getById(id));
     }
 }

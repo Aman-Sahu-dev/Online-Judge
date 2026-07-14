@@ -1,6 +1,7 @@
 package com.ares.judge.submission.dto;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 public record SubmissionResponse(
@@ -11,6 +12,6 @@ public record SubmissionResponse(
         UUID traceId,
         Integer executionTime,
         Integer memoryUsed,
-        LocalDateTime createdAt
-
+        LocalDateTime createdAt,
+        List<TimelineEvent> timeline
 ) {}
