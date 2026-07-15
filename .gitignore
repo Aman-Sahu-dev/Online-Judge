@@ -1,0 +1,12 @@
+# Rust
+judge-worker/target/
+
+# Java
+target/
+*.class
+
+# IntelliJ
+.idea/
+
+# VS Code
+.vscode/
