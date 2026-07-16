@@ -1,7 +1,10 @@
 [package]
 name = "judge-worker"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
 tempfile = "3"
+tokio = { version = "1", features = ["full"] }
+bollard = "0.16"
+futures-util = "0.3"
