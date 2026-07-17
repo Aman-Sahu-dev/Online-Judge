@@ -24,6 +24,7 @@ async fn main() -> io::Result<()> {
     std::fs::write(&source_path, source_code)?;
 
     // 2. Connect to Docker
+    //
     let docker = Docker::connect_with_local_defaults()
         .expect("Failed to connect to Docker daemon. Is Docker running?");
 
@@ -34,6 +35,7 @@ async fn main() -> io::Result<()> {
         None,
         bollard::image::CreateImageOptions {
             from_image: "rust:latest",
+
             ..Default::default()
         },
     ).await.map(|stream| stream.for_each(|_| async {}));
