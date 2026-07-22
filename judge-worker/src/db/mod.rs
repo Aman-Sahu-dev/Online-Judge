@@ -1,6 +1,7 @@
-use tokio_postgres::{NoTls, Error};
-use uuid::Uuid;
+// src/db/mod.rs
 use crate::judge::TestCase;
+use tokio_postgres::{Error, NoTls};
+use uuid::Uuid;
 
 pub struct ProblemData {
     pub id: Uuid,
@@ -8,7 +9,9 @@ pub struct ProblemData {
     pub memory_limit_mb: i32,
 }
 
-pub async fn fetch_problem_and_tests(problem_id: Uuid) -> Result<(ProblemData, Vec<TestCase>), Error> {
+pub async fn fetch_problem_and_tests(
+    problem_id: Uuid,
+) -> Result<(ProblemData, Vec<TestCase>), Error> {
     let connection_string = "host=localhost user=postgres password=postgres dbname=judge";
     let (client, connection) = tokio_postgres::connect(connection_string, NoTls).await?;
 
