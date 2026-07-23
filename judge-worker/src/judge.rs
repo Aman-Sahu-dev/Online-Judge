@@ -40,7 +40,7 @@ pub async fn judge(source_code: &str, test_cases: &[TestCase]) -> JudgeResult {
     let workspace = TempDir::new().expect("Failed to create workspace");
     std::fs::write(workspace.path().join("main.rs"), source_code)
         .expect("Failed to write source code");
-:
+
     let workspace_path = workspace.path().to_str().unwrap().to_string();
     let container_name = format!("judge-{}", uuid::Uuid::new_v4());
 
